@@ -1,0 +1,29 @@
+<h1>Product Management System</h1>
+<form #f = "ngForm">
+<label>Nom du portfolio</label>
+<input type="text" name="nom" [(ngModel)] = "selectedPortfolio.nom">
+<br/>
+<label>Description</label>
+<input type="text" name="description" [(ngModel)] = "selectedPortfolio.description">
+<br/>
+<input type="button" (click)="createOrUpdatePortfolio(f)" value="Create or Update Portfolio">
+</form>
+<br/>
+<div>
+<table class="table table-striped table-bordered">
+    <tr>
+    <th>ID</th>
+    <th>Portfolio nom</th>
+    <th>Description Portfolio</th>
+    <th>Operations</th>
+    </tr>
+    <tr *ngFor="let portfo of portfolio">
+    <td>{{ portfo.id }}</td>
+    <td>{{ portfo.nom }}</td>
+    <td>{{ portfo.description }}</td>
+    <td>
+    <button (click)="selectPortfolio(portfolio)">Edit</button>
+    <!--<button id="del" (click)="deleteProduct(product.id)">Delete</button>-->
+    </td>
+    </tr>
+</table>
